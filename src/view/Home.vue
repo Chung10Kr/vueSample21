@@ -1,7 +1,7 @@
 <template>
     <div>
         <h1>Hellow {{name}}!</h1>
-        <input type="text" v-model="input" />
+        <input id="text" type="text" v-model="input" />
         <button type="button" @click="getData">Get</button>
         <button type="button" @click="setData">Set</button>
 
@@ -20,11 +20,30 @@
                 <td>{{d.t}}</td>
             </tr>
         </table>
+
+  <div class="h2 mb-0">
+    <b-icon-arrow-up></b-icon-arrow-up>
+    <b-icon-exclamation-triangle-fill></b-icon-exclamation-triangle-fill>
+  </div>
+ <div class="h2 mb-0">
+    <b-icon icon="arrow-up"></b-icon>
+    <b-icon icon="exclamation-triangle"></b-icon>
+  </div>
+
+
+
+
     </div>
 </template>
 
 <script>
+
+import $ from 'jquery';
+
 export default {
+    components: {
+        
+    },
     data(){
         return {
             name : "Vue",
@@ -35,18 +54,23 @@ export default {
                 {v:"J" , t:"Jeju"},
             ],
             region : 'J',
-            tableShow : false
+            tableShow : false,
+            onOff : false
         }
     },
     watch:{
         input(){
              console.log( this.input ) 
+        },
+        onOff(){
+            alert( this.onOff )
         }
     },
     methods:{
         getData()
         {
             alert( this.input )
+            alert( $("#text").val() )
         },
         setData()
         {
