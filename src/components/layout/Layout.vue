@@ -6,7 +6,7 @@
     <div id="content" class="content PdL10 PdR10 PdT0 PdB0">
       <span v-if=" sMenuType == 'SideBar' " 
             style="font-size:30px;cursor:pointer" 
-            @click="openNav">&#9776; Menu </span>
+            @click="openNav">&#9776;</span>
       <router-view></router-view>
     </div>
     <Footer/>
@@ -18,6 +18,7 @@ import Header from '@/components/layout/Header.vue';
 import Footer from '@/components/layout/Footer.vue';
 import SideBar from '@/components/layout/SideBar.vue';
 
+import FBNetwork from '@/config/FBNetwork.js'
 
 export default {
   name: 'App',
@@ -30,37 +31,20 @@ export default {
     return {
       sMenuType : "Header",
       //sMenuType : "SideBar",
-      aMenu : [
-        {
-          name : '기본관리' , src : '/',
-          child : [
-            {name : '사용자관리' , src : '/About'},
-            {name : '코드관리' , src : '/About'},
-            {name : '로그관리' , src : '/About'}
-          ]
-        },
-        {
-          name : '입고' , src : '/',
-          child : [
-            {name : '입고관리' , src : '/About'},
-            {
-              name : '입고이력' , src : '/About',
-              child : [
-                {name : '미입고이력' , src : '/About'},
-                {name : '강제입고이력' , src : '/About'},
-                {name : '시스템연동' , src : '/About'}
-              ]
-            },
-            
-          ]
-        },
-      ]
+      aMenu : []
     }
   },
   methods: {
-        openNav(){
-            document.getElementById("mySidenav").style.width = "250px";
-        },
+      openNav(){
+          document.getElementById("mySidenav").style.width = "250px";
+      },
+  },
+  created(){
+    let self = this;
+    let cb = function(result){
+      self.aMenu = result['menu'];
+    };
+    FBNetwork.request_get_menu("",cb);
   }
 }
 </script>

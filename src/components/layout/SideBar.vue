@@ -1,18 +1,35 @@
 <template>
     <div id="mySidenav" class="sidenav">
       <a class="closebtn" @click="closeNav">&times;</a>
-      <a href="#">About</a>
-      <a href="#">Services</a>
-      <a href="#">Clients</a>
-      <a href="#">Contact</a>
+
+
+      <a :href="d.src"  :key="i" v-for="(d,i) in aMenu" @click="movNav"> 
+          {{d.name}}
+      </a>
+
     </div>
 </template>
 
 <script>
 export default {
     name : "SideBar",
+    props : ['initMenus'],
+    data(){
+        return {
+            aMenu : this.initMenus
+        }
+    },
+    computed:{
+    },
+    mounted(){
+        
+    },
     methods: {
-        closeNav() {
+        movNav(){
+          this.closeNav();
+
+        },
+        closeNav(){
             document.getElementById("mySidenav").style.width = "0";
             return false;
         },
@@ -22,6 +39,7 @@ export default {
 
 
 <style scoped>
+
 .sidenav {
   height: 100%;
   width: 0;
@@ -31,7 +49,7 @@ export default {
   left: 0;
   background-color: #111;
   overflow-x: hidden;
-  transition: 0.5s;
+  transition: 0.2s;
   padding-top: 60px;
 }
 
@@ -61,5 +79,7 @@ export default {
   .sidenav {padding-top: 15px;}
   .sidenav a {font-size: 18px;}
 }
+
+
 
 </style>

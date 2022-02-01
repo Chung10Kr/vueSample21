@@ -6,23 +6,15 @@
             <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
             <b-collapse id="nav-collapse" is-nav >
-                <!-- Right aligned nav items -->
-                <b-navbar-nav class="ml-auto">
-                    <b-nav-item-dropdown right 
-                                        :key="i" 
-                                        v-for="(d,i) in aMenu">
-                        <template #button-content><em>{{d.name}}</em></template>
-                        <b-dropdown-item 
-                                        :href="d2.src" 
-                                        :key="i2" 
-                                        v-for="(d2,i2) in d.child"
-                                        >
-                            {{d2.name}}
-                        </b-dropdown-item>
 
-                    </b-nav-item-dropdown>
+                <b-navbar-nav>
+                    <b-nav-item :href="d.src"  :key="i" v-for="(d,i) in aMenu" > 
+                        {{d.name}}
+                    </b-nav-item>
                 </b-navbar-nav>
+
             </b-collapse>
+
         </b-navbar>
     </div>
 </template>
@@ -38,8 +30,7 @@ export default {
     computed:{
     },
     mounted(){
-        console.log( this.aMenu )
+        
     }
-
 };
 </script>

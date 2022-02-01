@@ -2,8 +2,8 @@
     <div>
         <h1>Hellow {{name}}!</h1>
         <input id="text" type="text" v-model="input" />
-        <button type="button" @click="getData">Get</button>
-        <button type="button" @click="setData">Set</button>
+        <button type="button" @click="getData">Ajax Get</button>
+        <button type="button" @click="setData">Ajax Post</button>
 
         <select class="form-control" v-model="region"  @change="chgRegion">
             <option :key="i" :value="d.v" v-for="(d,i) in options">{{d.t}}</option>
@@ -39,6 +39,7 @@
 <script>
 
 import $ from 'jquery';
+import FBNetwork from '@/config/FBNetwork.js'
 
 export default {
     components: {
@@ -60,7 +61,8 @@ export default {
     },
     watch:{
         input(){
-             console.log( this.input ) 
+            let txt = $("#text").val()
+             console.log( `${this.input} ${txt}` ) 
         },
         onOff(){
             alert( this.onOff )
@@ -69,12 +71,28 @@ export default {
     methods:{
         getData()
         {
-            alert( this.input )
-            alert( $("#text").val() )
+            // Get , callback
+
+            let self = this;
+            let params = {
+                input : this.input
+            };
+            console.log( params )
+            let sucFnc = function(result){
+                self.input = result['input'];
+            };
+            FBNetwork.request_member_get( params, sucFnc );
         },
-        setData()
+        async setData()
         {
-            this.input = '12345'
+            // Get , callback
+
+            let params = {
+                input : this.input
+            };
+
+            let result = await FBNetwork.request_member_post( params );
+            this.input = result['input'];
         },
         chgRegion(){
             alert( this.region )
