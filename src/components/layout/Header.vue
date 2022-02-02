@@ -8,7 +8,7 @@
             <b-collapse id="nav-collapse" is-nav >
 
                 <b-navbar-nav>
-                    <b-nav-item :href="d.src"  :key="i" v-for="(d,i) in aMenu" > 
+                    <b-nav-item :href="d.src"  :key="i" v-for="(d,i) in initMenus" > 
                         {{d.name}}
                     </b-nav-item>
                 </b-navbar-nav>
@@ -24,13 +24,7 @@ export default {
     props : ['initMenus'],
     data(){
         return {
-            aMenu : this.initMenus
         }
     },
-    computed:{
-    },
-    mounted(){
-        
-    }
 };
 </script>

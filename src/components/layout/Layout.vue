@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
-    <Header v-if=" sMenuType == 'Header' "  v-bind:initMenus="aMenu"/>
-    <SideBar v-if=" sMenuType == 'SideBar'" v-bind:initMenus="aMenu"/>
+    <Header v-if=" sMenuType == 'Header' "  :initMenus="aMenu"/>
+    <SideBar v-if=" sMenuType == 'SideBar'" :initMenus="aMenu"/>
 
     <div id="content" class="content PdL10 PdR10 PdT0 PdB0">
       <span v-if=" sMenuType == 'SideBar' " 
@@ -18,7 +18,7 @@ import Header from '@/components/layout/Header.vue';
 import Footer from '@/components/layout/Footer.vue';
 import SideBar from '@/components/layout/SideBar.vue';
 
-import FBNetwork from '@/config/FBNetwork.js'
+import FBNetwork from '@/utils/FBNetwork.js'
 
 export default {
   name: 'App',
@@ -39,12 +39,14 @@ export default {
           document.getElementById("mySidenav").style.width = "250px";
       },
   },
-  created(){
+  beforeCreate(){
+    
     let self = this;
-    let cb = function(result){
+    let sucFn = function(result){
       self.aMenu = result['menu'];
     };
-    FBNetwork.request_get_menu("",cb);
+    FBNetwork.request_get_menu({},sucFn);
+
   }
 }
 </script>

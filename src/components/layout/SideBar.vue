@@ -3,7 +3,7 @@
       <a class="closebtn" @click="closeNav">&times;</a>
 
 
-      <a :href="d.src"  :key="i" v-for="(d,i) in aMenu" @click="movNav"> 
+      <a :href="d.src"  :key="i" v-for="(d,i) in initMenus" @click="movNav"> 
           {{d.name}}
       </a>
 
@@ -16,18 +16,12 @@ export default {
     props : ['initMenus'],
     data(){
         return {
-            aMenu : this.initMenus
+            
         }
-    },
-    computed:{
-    },
-    mounted(){
-        
     },
     methods: {
         movNav(){
           this.closeNav();
-
         },
         closeNav(){
             document.getElementById("mySidenav").style.width = "0";

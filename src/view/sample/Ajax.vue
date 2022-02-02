@@ -20,12 +20,10 @@
 
 <script>
 
-import FBNetwork from '@/config/FBNetwork.js'
+import FBNetwork from '@/utils/FBNetwork.js'
 
 export default {
-    components: {
-        
-    },
+    name: 'Ajax',
     data(){
         return {
             name : "",
