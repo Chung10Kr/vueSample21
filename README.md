@@ -6,6 +6,8 @@
 [BootStrap Vue](https://bootstrap-vue.org/)
 [Vue](https://kr.vuejs.org/v2/guide/index.html)
 
+[1시간 BootStrap](https://www.youtube.com/watch?v=5ETqQWvwXV4)
+[1시간 Vue](https://www.youtube.com/watch?v=sqH0u8wN4Rs)
 
 ## Vue install
 
