@@ -5,8 +5,9 @@ import routes from '@/utils/FBRoutes';
 Vue.use(VueRouter);
 
 const router = new VueRouter({
-    mode : "history",
+    //mode : "history",
     routes,
 });
+
 
 export default router;

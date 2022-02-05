@@ -1,5 +1,6 @@
 <template>
     <div>
+
         <b-navbar toggleable="lg" type="dark" variant="dark" class="PdL10 PdR10 PdT5 PdB5">
             <b-navbar-brand href="/">HOME</b-navbar-brand>
 

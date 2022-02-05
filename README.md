@@ -6,9 +6,10 @@
 [BootStrap Vue](https://bootstrap-vue.org/)
 [Vue](https://kr.vuejs.org/v2/guide/index.html)
 
-[1시간 BootStrap](https://www.youtube.com/watch?v=5ETqQWvwXV4)
-[1시간 Vue](https://www.youtube.com/watch?v=sqH0u8wN4Rs)
-
+[BootStrap 참고](https://www.youtube.com/watch?v=5ETqQWvwXV4)
+[Vue 참고](https://www.youtube.com/watch?v=sqH0u8wN4Rs)
+[WebPack 참고](https://www.youtube.com/watch?v=rbmUFHZt3sg)
+[Vue Tip 참고](https://jess2.xyz/vue/vue-tip/)
 ## Vue install
 
 ```
@@ -28,20 +29,6 @@ npm install
 ```
 npm run serve
 ```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
-
 
 
 ## Vue 생명주기

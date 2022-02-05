@@ -45,6 +45,7 @@ export default {
     let sucFn = function(result){
       self.aMenu = result['menu'];
     };
+
     FBNetwork.request_get_menu({},sucFn);
 
   }
