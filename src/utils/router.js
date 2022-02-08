@@ -1,13 +1,12 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
-import routes from '@/utils/FBRoutes';
+import routes from '@/utils/CFGRoutes';
 
 Vue.use(VueRouter);
 
 const router = new VueRouter({
-    //mode : "history",
-    routes,
+	mode: 'history',
+	routes,
 });
-
 
 export default router;
