@@ -16,8 +16,15 @@ Vue.use(BootstrapVue);
 Vue.use(IconsPlugin);
 Vue.config.productionTip = false;
 
-new Vue({
-	router,
-	store,
-	render: h => h(App),
-}).$mount('#app');
+async function init() {
+	await store.dispatch('getUserNm', 'LCY');
+	await store.dispatch('getMenu', {});
+}
+
+init().then(() => {
+	new Vue({
+		router,
+		store,
+		render: h => h(App),
+	}).$mount('#app');
+});

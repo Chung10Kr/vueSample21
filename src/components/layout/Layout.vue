@@ -1,7 +1,7 @@
 <template>
 	<div class="wrapper">
-		<Header v-if="sMenuType == 'Header'" :initMenus="aMenu" />
-		<SideBar v-if="sMenuType == 'SideBar'" :initMenus="aMenu" />
+		<Header v-if="sMenuType == 'Header'" />
+		<SideBar v-if="sMenuType == 'SideBar'" />
 
 		<div id="content" class="content PdL10 PdR10 PdT0 PdB0">
 			<span
@@ -30,7 +30,7 @@ export default {
 	},
 	data() {
 		return {
-			//sMenuType : "Header",
+			//sMenuType: 'Header',
 			sMenuType: 'SideBar',
 			aMenu: [],
 		};
@@ -39,11 +39,6 @@ export default {
 		openNav() {
 			document.getElementById('mySidenav').style.width = '250px';
 		},
-	},
-	async beforeCreate() {
-		await this.$store.dispatch('getUserNm', 'LCY');
-		await this.$store.dispatch('getMenu', {});
-		this.aMenu = this.$store.getters.getMenuList;
 	},
 };
 </script>

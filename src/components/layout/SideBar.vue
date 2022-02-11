@@ -2,7 +2,12 @@
 	<div id="mySidenav" class="sidenav">
 		<a class="closebtn" @click="closeNav">&times;</a>
 
-		<a :href="d.src" :key="i" v-for="(d, i) in initMenus" @click="movNav">
+		<a
+			:href="d.src"
+			:key="i"
+			v-for="(d, i) in $store.state.menuList"
+			@click="movNav"
+		>
 			{{ d.name }}
 		</a>
 	</div>
@@ -11,7 +16,6 @@
 <script>
 export default {
 	name: 'SideBar',
-	props: ['initMenus'],
 	data() {
 		return {};
 	},

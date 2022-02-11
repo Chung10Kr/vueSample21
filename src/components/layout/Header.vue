@@ -12,7 +12,11 @@
 
 			<b-collapse id="nav-collapse" is-nav>
 				<b-navbar-nav>
-					<b-nav-item :href="d.src" :key="i" v-for="(d, i) in initMenus">
+					<b-nav-item
+						:href="d.src"
+						:key="i"
+						v-for="(d, i) in $store.state.menuList"
+					>
 						{{ d.name }}
 					</b-nav-item>
 				</b-navbar-nav>
@@ -23,7 +27,6 @@
 <script>
 export default {
 	name: 'Header',
-	props: ['initMenus'],
 	data() {
 		return {};
 	},
