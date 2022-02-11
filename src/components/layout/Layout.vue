@@ -21,8 +21,6 @@ import Header from '@/components/layout/Header.vue';
 import Footer from '@/components/layout/Footer.vue';
 import SideBar from '@/components/layout/SideBar.vue';
 
-import CFGNetwork from '@/utils/CFGNetwork';
-
 export default {
 	name: 'App',
 	components: {
@@ -42,13 +40,10 @@ export default {
 			document.getElementById('mySidenav').style.width = '250px';
 		},
 	},
-	beforeCreate() {
-		let self = this;
-		let sucFn = function (result) {
-			self.aMenu = result['menu'];
-		};
-
-		CFGNetwork.request_get_menu({}, sucFn);
+	async beforeCreate() {
+		await this.$store.dispatch('getUserNm', 'LCY');
+		await this.$store.dispatch('getMenu', {});
+		this.aMenu = this.$store.getters.getMenuList;
 	},
 };
 </script>
