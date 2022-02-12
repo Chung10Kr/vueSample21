@@ -25,7 +25,7 @@
 				/>
 			</form>
 
-			<div id="formFooter">문의는 관리자에게 부탁드림</div>
+			<div id="formFooter">문의는 A동 2층 3번쨰 끝에서 2번째 자리 분에게</div>
 		</div>
 	</div>
 </template>
@@ -44,7 +44,7 @@ export default {
 	},
 	created() {
 		if (this.$store.getters.getAccessToken) {
-			this.$router.push({ path: '/' });
+			this.$router.push({ name: 'main' });
 		}
 	},
 	methods: {

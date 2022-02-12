@@ -40,7 +40,6 @@ export default {
 	},
 	beforeMount() {
 		const setMeneType = localStorage.getItem('setMeneType');
-		console.log(setMeneType);
 		if (setMeneType) this.sMenuType = setMeneType;
 	},
 };

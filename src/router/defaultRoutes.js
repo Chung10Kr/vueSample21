@@ -1,7 +1,22 @@
 export default [
-	{ path: '/main', component: () => import('@/view/common/Main.vue') },
-	{ path: '/set', component: () => import('@/view/common/Setting.vue') },
-	{ path: '/ajax', component: () => import('@/view/Ajax.vue') },
+	{
+		path: '/main',
+		name: 'main',
+		component: () => import('@/view/common/Main.vue'),
+		meta: { auth: true },
+	},
+	{
+		path: '/set',
+		name: 'setting',
+		component: () => import('@/view/common/Setting.vue'),
+		meta: { auth: true },
+	},
+	{
+		path: '/ajax',
+		name: 'ajax',
+		component: () => import('@/view/Ajax.vue'),
+		meta: { auth: true },
+	},
 ];
 
 /*

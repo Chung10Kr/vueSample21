@@ -38,7 +38,7 @@ export default {
 				alert('로그인 기간이 만료되었습니다.');
 				commit(DESTROY_USER_INFO);
 				commit(DESTROY_ACCESS_TOKEN);
-				router.push({ path: '/login' });
+				router.push({ name: 'login' });
 				return false;
 			}
 			commit(SET_ACCESS_TOKEN, accessToken);
@@ -51,14 +51,14 @@ export default {
 		let sucFn = async function (result) {
 			commit(SET_USER_INFO, result['userInfo']);
 			await store.dispatch('getMenu', result['userInfo']);
-			router.push({ path: '/main' });
+			router.push({ name: 'main' });
 		};
 		await defaultApi.request_userInfo(oParams, sucFn);
 	},
 	logout({ commit }) {
 		commit(DESTROY_USER_INFO);
 		commit(DESTROY_ACCESS_TOKEN);
-		router.push({ path: '/login' });
+		router.push({ name: 'login' });
 	},
 
 	async getMenu({ commit }, params) {
