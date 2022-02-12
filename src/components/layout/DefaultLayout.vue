@@ -31,7 +31,6 @@ export default {
 	data() {
 		return {
 			sMenuType: 'Header',
-			//sMenuType: 'SideBar',
 		};
 	},
 	methods: {
@@ -40,8 +39,8 @@ export default {
 		},
 	},
 	beforeMount() {
-		const setMeneType = sessionStorage.getItem('setMeneType');
-		this.sMenuType = setMeneType;
+		const setMeneType = localStorage.getItem('setMeneType');
+		if (setMeneType) this.sMenuType = setMeneType;
 	},
 };
 </script>

@@ -2,13 +2,14 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import defaultRoutes from '@/router/defaultRoutes';
 import emptytRoutes from '@/router/emptytRoutes';
+import store from '@/store/index';
 
 Vue.use(VueRouter);
 
 const router = new VueRouter({
 	mode: 'history',
 	routes: [
-		{ path: '/', redirect: '/main' },
+		{ path: '/', name: '/', redirect: '/login' },
 		{
 			path: '/',
 			name: 'emptyLayout',
@@ -29,4 +30,11 @@ const router = new VueRouter({
 	],
 });
 
+router.beforeEach((to, from, next) => {
+	if (to.meta.auth && !store.getters.getAccessToken) {
+		next('/');
+		return;
+	}
+	next();
+});
 export default router;

@@ -17,9 +17,9 @@ Vue.use(IconsPlugin);
 Vue.config.productionTip = false;
 
 async function init() {
-	const savedToken = sessionStorage.getItem('accessToken');
-	if (savedToken) {
-		return store.dispatch('loginByToken', savedToken);
+	const storeToken = store.state.accessToken;
+	if (storeToken) {
+		return store.dispatch('loginByToken', storeToken);
 	}
 	return true;
 }
