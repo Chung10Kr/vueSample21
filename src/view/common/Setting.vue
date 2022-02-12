@@ -25,11 +25,11 @@ export default {
 	},
 	methods: {
 		onChg: function () {
-			sessionStorage.setItem('setMeneType', this.sMenuType);
+			localStorage.setItem('setMeneType', this.sMenuType);
 		},
 	},
 	beforeMount() {
-		const setMeneType = sessionStorage.getItem('setMeneType');
+		const setMeneType = localStorage.getItem('setMeneType');
 		if (setMeneType) this.sMenuType = setMeneType;
 	},
 };

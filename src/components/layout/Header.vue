@@ -19,16 +19,25 @@
 					>
 						{{ d.name }}
 					</b-nav-item>
+
+					<b-nav-item @click="onLogOut"> LogOut </b-nav-item>
 				</b-navbar-nav>
 			</b-collapse>
 		</b-navbar>
 	</div>
 </template>
 <script>
+import { mapActions } from 'vuex';
 export default {
 	name: 'Header',
 	data() {
 		return {};
+	},
+	methods: {
+		onLogOut: async function () {
+			await this.logout();
+		},
+		...mapActions(['logout']),
 	},
 };
 </script>

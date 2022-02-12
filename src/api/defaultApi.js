@@ -1,4 +1,4 @@
-import networkUtils from '@/utils/NetworkUtils.js';
+import networkUtils from '@/api/NetworkUtils.js';
 
 export default {
 	request_login: function (params, successFn, errorFnc) {

@@ -48,13 +48,19 @@ export default {
 		await defaultApi.request_loginToken(oParams, sucFn);
 	},
 	async userInfo({ commit }, oParams) {
-		let sucFn = function (result) {
+		let sucFn = async function (result) {
 			commit(SET_USER_INFO, result['userInfo']);
-			store.dispatch('getMenu', result['userInfo']);
+			await store.dispatch('getMenu', result['userInfo']);
 			router.push({ path: '/main' });
 		};
 		await defaultApi.request_userInfo(oParams, sucFn);
 	},
+	logout({ commit }) {
+		commit(DESTROY_USER_INFO);
+		commit(DESTROY_ACCESS_TOKEN);
+		router.push({ path: '/login' });
+	},
+
 	async getMenu({ commit }, params) {
 		let sucFn = function (result) {
 			commit(SET_MY_MENU, result['menu']);

@@ -10,10 +10,12 @@
 		>
 			{{ d.name }}
 		</a>
+		<a @click="onLogOut"> LogOut </a>
 	</div>
 </template>
 
 <script>
+import { mapActions } from 'vuex';
 export default {
 	name: 'SideBar',
 	data() {
@@ -27,6 +29,11 @@ export default {
 			document.getElementById('mySidenav').style.width = '0';
 			return false;
 		},
+		onLogOut: async function (e) {
+			e.preventDefault();
+			await this.logout();
+		},
+		...mapActions(['logout']),
 	},
 };
 </script>

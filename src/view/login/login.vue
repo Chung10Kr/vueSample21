@@ -44,7 +44,7 @@ export default {
 	},
 	created() {
 		if (this.$store.getters.getAccessToken) {
-			this.$router.push({ name: '/' });
+			this.$router.push({ path: '/' });
 		}
 	},
 	methods: {

@@ -12,7 +12,6 @@ export default {
 		if (accessToken) {
 			state.accessToken = accessToken;
 			api.defaults.headers.common.Authorization = `${accessToken}`;
-			sessionStorage.setItem('accessToken', accessToken);
 		}
 	},
 	[SET_USER_INFO](state, userInfo) {
@@ -23,7 +22,6 @@ export default {
 	[DESTROY_ACCESS_TOKEN](state) {
 		state.accessToken = '';
 		delete api.defaults.headers.common.Authorization;
-		sessionStorage.removeItem('accessToken');
 	},
 	[DESTROY_USER_INFO](state) {
 		state.userInfo = null;
