@@ -14,7 +14,7 @@
 
 [WebPack 기초강의](https://www.youtube.com/watch?v=rbmUFHZt3sg)
 
-[Vue Tip고](https://jess2.xyz/vue/vue-tip/)
+[Vue Tip](https://jess2.xyz/vue/vue-tip/)
 
 ## Project setup
 ```

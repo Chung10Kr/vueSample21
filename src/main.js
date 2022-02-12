@@ -1,7 +1,7 @@
 import Vue from 'vue';
-import App from '@/components/layout/Layout.vue';
+import App from '@/App';
 
-import router from '@/utils/router';
+import router from '@/router/index';
 import store from '@/store/index';
 import { BootstrapVue, IconsPlugin } from 'bootstrap-vue';
 
@@ -17,8 +17,11 @@ Vue.use(IconsPlugin);
 Vue.config.productionTip = false;
 
 async function init() {
-	await store.dispatch('getUserNm', 'LCY');
-	await store.dispatch('getMenu', {});
+	const savedToken = sessionStorage.getItem('accessToken');
+	if (savedToken) {
+		return store.dispatch('loginByToken', savedToken);
+	}
+	return true;
 }
 
 init().then(() => {

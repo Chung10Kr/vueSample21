@@ -1,4 +1,4 @@
-import api from '@/utils/api/index.js';
+import api from '@/api/index.js';
 import businessUtils from '@/utils/BusinessUtils.js';
 
 export default {

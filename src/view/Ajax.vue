@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import CFGNetwork from '@/utils/CFGNetwork';
+import defaultApi from '@/api/defaultApi';
 
 export default {
 	name: 'Ajax',
@@ -38,14 +38,14 @@ export default {
 			let sucFnc = function (result) {
 				self.name = result['name'];
 			};
-			CFGNetwork.request_sample_get(params, sucFnc);
+			defaultApi.request_sample_get(params, sucFnc);
 		},
 		async setData() {
 			let params = {
 				name: 'lee',
 				age: '29',
 			};
-			let result = await CFGNetwork.request_sample_post(params);
+			let result = await defaultApi.request_sample_post(params);
 			this.options = result['list'];
 		},
 	},

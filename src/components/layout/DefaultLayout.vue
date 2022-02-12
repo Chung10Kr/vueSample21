@@ -30,15 +30,18 @@ export default {
 	},
 	data() {
 		return {
-			//sMenuType: 'Header',
-			sMenuType: 'SideBar',
-			aMenu: [],
+			sMenuType: 'Header',
+			//sMenuType: 'SideBar',
 		};
 	},
 	methods: {
 		openNav() {
 			document.getElementById('mySidenav').style.width = '250px';
 		},
+	},
+	beforeMount() {
+		const setMeneType = sessionStorage.getItem('setMeneType');
+		this.sMenuType = setMeneType;
 	},
 };
 </script>

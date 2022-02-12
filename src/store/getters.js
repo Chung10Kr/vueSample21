@@ -1,6 +1,6 @@
 export default {
-	getUserName(state) {
-		return state.username || null;
+	getAccessToken(state) {
+		return state.accessToken;
 	},
 	getMenuList(state) {
 		return state.menuList || null;

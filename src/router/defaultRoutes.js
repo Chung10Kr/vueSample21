@@ -1,11 +1,8 @@
-const routes = [
-	{ path: '/', redirect: '/home' },
-	{ path: '*', component: () => import('@/view/common/NotFoundPage.vue') },
-	{ path: '/home', component: () => import('@/view/Home.vue') },
+export default [
+	{ path: '/main', component: () => import('@/view/common/Main.vue') },
+	{ path: '/set', component: () => import('@/view/common/Setting.vue') },
 	{ path: '/ajax', component: () => import('@/view/Ajax.vue') },
 ];
-
-export default routes;
 
 /*
 다이나믹 임포트
