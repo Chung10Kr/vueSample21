@@ -95,3 +95,11 @@ npm run lint
 
 
 - Live Server(라이브로딩 서버)
+
+
+
+# Jest Setup
+```
+npm install jest --global
+jest --init
+```

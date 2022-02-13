@@ -1,4 +1,4 @@
-import validation from '@/utils/common';
+import validation from '@/utils/validation';
 
 describe('validation.js', () => {
 	test('validateEmail - valid Email', () => {
