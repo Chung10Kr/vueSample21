@@ -7,14 +7,13 @@
 					type="text"
 					id="user_id"
 					class="fadeIn second"
-					name="login"
-					placeholder="login"
+					placeholder="ID"
 				/>
 				<input
 					v-model="loginInfo.user_pwd"
-					type="text"
+					type="password"
+					id="user_pwd"
 					class="fadeIn third"
-					name="login"
 					placeholder="password"
 				/>
 				<input
@@ -36,8 +35,8 @@ export default {
 	data() {
 		return {
 			loginInfo: {
-				user_id: 'crlee05',
-				user_pwd: '12345',
+				user_id: '',
+				user_pwd: '',
 			},
 		};
 	},
@@ -179,7 +178,8 @@ input[type='reset']:active {
 	transform: scale(0.95);
 }
 
-input[type='text'] {
+input[type='text'],
+input[type='password'] {
 	background-color: #f6f6f6;
 	border: none;
 	color: #0d0d0d;
