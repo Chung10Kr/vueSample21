@@ -2,19 +2,25 @@ export default [
 	{
 		path: '/main',
 		name: 'main',
-		component: () => import('@/view/common/Main.vue'),
+		component: () => import('@/view/common/main.vue'),
 		meta: { auth: true },
 	},
 	{
 		path: '/set',
 		name: 'setting',
-		component: () => import('@/view/common/Setting.vue'),
+		component: () => import('@/view/common/setting.vue'),
+		meta: { auth: true },
+	},
+	{
+		path: '/board',
+		name: 'BoardView',
+		component: () => import('@/view/board/board-list.vue'),
 		meta: { auth: true },
 	},
 	{
 		path: '/ajax',
 		name: 'ajax',
-		component: () => import('@/view/Ajax.vue'),
+		component: () => import('@/view/ajax.vue'),
 		meta: { auth: true },
 	},
 ];

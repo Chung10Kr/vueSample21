@@ -17,9 +17,9 @@
 </template>
 
 <script>
-import Header from '@/components/layout/Header.vue';
-import Footer from '@/components/layout/Footer.vue';
-import SideBar from '@/components/layout/SideBar.vue';
+import Header from '@/components/layout/header';
+import Footer from '@/components/layout/footer';
+import SideBar from '@/components/layout/sideBar';
 
 export default {
 	name: 'App',

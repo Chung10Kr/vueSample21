@@ -13,19 +13,19 @@ const router = new VueRouter({
 		{
 			path: '/',
 			name: 'emptyLayout',
-			component: () => import('@/components/layout/EmptyLayout.vue'),
+			component: () => import('@/components/layout/emptyLayout.vue'),
 			children: emptytRoutes,
 		},
 		{
 			path: '/',
 			name: 'defaultLayout',
-			component: () => import('@/components/layout/DefaultLayout.vue'),
+			component: () => import('@/components/layout/defaultLayout.vue'),
 			children: defaultRoutes,
 		},
 		{
 			path: '*',
 			name: 'NotFoundPAge',
-			component: () => import('@/view/common/NotFoundPage.vue'),
+			component: () => import('@/view/common/notFoundPage.vue'),
 		},
 	],
 });
