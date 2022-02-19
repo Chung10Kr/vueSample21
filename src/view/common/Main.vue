@@ -16,7 +16,6 @@ export default {
 	watch: {},
 	methods: {},
 	async beforeCreate() {
-		
 		this.name = await this.$store.state.userInfo.user_name;
 	},
 };
