@@ -1,7 +1,8 @@
 <template>
-	<div>
-		<h2>Hellow {{ name }}</h2>
-		<h2>Hellow {{ $store.state.userInfo }}</h2>
+	<div class="container h-100 w-100 text-center">
+		<div class="row h-100 align-self-center">
+			<div class="col-12 align-self-center">Main Page</div>
+		</div>
 	</div>
 </template>
 
@@ -9,14 +10,9 @@
 export default {
 	components: {},
 	data() {
-		return {
-			name: '',
-		};
+		return {};
 	},
 	watch: {},
 	methods: {},
-	async beforeCreate() {
-		this.name = await this.$store.state.userInfo.user_name;
-	},
 };
 </script>

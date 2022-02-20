@@ -3,6 +3,7 @@ import {
 	SET_USER_INFO,
 	DESTROY_ACCESS_TOKEN,
 	DESTROY_USER_INFO,
+	DESTROY_MY_MENU,
 	SET_MY_MENU,
 } from '@/store/mutations-types';
 import api from '@/api/index';
@@ -25,6 +26,9 @@ export default {
 	},
 	[DESTROY_USER_INFO](state) {
 		state.userInfo = null;
+	},
+	[DESTROY_MY_MENU](state) {
+		state.menuList = null;
 	},
 	[SET_MY_MENU](state, value) {
 		state.menuList = value;

@@ -9,7 +9,6 @@ import 'bootstrap/dist/css/bootstrap.css';
 import 'bootstrap-vue/dist/bootstrap-vue.css';
 import '@/assets/css/BasicSet.css';
 import '@/assets/css/common.css';
-import '@/assets/css/page.css';
 
 // Install BootstrapVue
 Vue.use(BootstrapVue);

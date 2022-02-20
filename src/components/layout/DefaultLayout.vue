@@ -3,7 +3,7 @@
 		<Header v-if="sMenuType == 'Header'" />
 		<SideBar v-if="sMenuType == 'SideBar'" />
 
-		<div id="content" class="content PdL10 PdR10 PdT0 PdB0">
+		<div id="content" class="content px-1 py-0">
 			<span
 				v-if="sMenuType == 'SideBar'"
 				style="font-size: 30px; cursor: pointer"
@@ -47,8 +47,13 @@ export default {
 
 <style scoped>
 .wrapper {
+	height: 100%;
+	width: 100%;
 	min-height: 100%;
 	position: relative;
 	padding-bottom: 19px; /* footer height */
+}
+.content {
+	width: 100%;
 }
 </style>

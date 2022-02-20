@@ -17,6 +17,7 @@
 	</section>
 </template>
 <script>
+import '@/assets/css/page.css';
 export default {
 	name: 'PagingView',
 	props: {

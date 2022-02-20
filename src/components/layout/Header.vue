@@ -19,7 +19,6 @@
 					>
 						{{ d.name }}
 					</b-nav-item>
-
 					<b-nav-item @click="onLogOut"> LogOut </b-nav-item>
 				</b-navbar-nav>
 			</b-collapse>

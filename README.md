@@ -64,7 +64,7 @@ npm run lint
     "mode": "auto"
 }],
 "eslint.validate": [{
-        "language": "vue",
+        "lㅇanguage": "vue",
         "autoFix": true
     },
     {

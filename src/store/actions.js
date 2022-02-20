@@ -5,6 +5,7 @@ import {
 	SET_ACCESS_TOKEN,
 	SET_USER_INFO,
 	DESTROY_ACCESS_TOKEN,
+	DESTROY_MY_MENU,
 	DESTROY_USER_INFO,
 	SET_MY_MENU,
 } from '@/store/mutations-types';
@@ -28,7 +29,7 @@ export default {
 		};
 		await defaultApi.request_login(oParams, sucFn);
 	},
-	async loginByToken({ commit }, token) {
+	loginByToken({ commit }, token) {
 		let oParams = {
 			token: token,
 		};
@@ -36,16 +37,14 @@ export default {
 			const accessToken = result.accessToken;
 			if (!accessToken) {
 				alert('로그인 기간이 만료되었습니다.');
-				commit(DESTROY_USER_INFO);
-				commit(DESTROY_ACCESS_TOKEN);
-				router.push({ name: 'login' });
+				store.dispatch('logout');
 				return false;
 			}
 			commit(SET_ACCESS_TOKEN, accessToken);
 			commit(SET_USER_INFO, result['userInfo']);
 			store.dispatch('getMenu', result['userInfo']);
 		};
-		await defaultApi.request_loginToken(oParams, sucFn);
+		defaultApi.request_loginToken(oParams, sucFn);
 	},
 	async userInfo({ commit }, oParams) {
 		let sucFn = async function (result) {
@@ -58,6 +57,7 @@ export default {
 	logout({ commit }) {
 		commit(DESTROY_USER_INFO);
 		commit(DESTROY_ACCESS_TOKEN);
+		commit(DESTROY_MY_MENU);
 		router.push({ name: 'login' });
 	},
 
@@ -65,6 +65,10 @@ export default {
 		let sucFn = function (result) {
 			commit(SET_MY_MENU, result['menu']);
 		};
-		await defaultApi.request_menuList(params, sucFn);
+		console.log('@@@@@');
+		if (!store.state.menuList) {
+			console.log('가져오기');
+			await defaultApi.request_menuList(params, sucFn);
+		}
 	},
 };
