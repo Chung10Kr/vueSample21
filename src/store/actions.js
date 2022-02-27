@@ -65,7 +65,6 @@ export default {
 		let sucFn = function (result) {
 			commit(SET_MY_MENU, result['menu']);
 		};
-		console.log('@@@@@');
 		if (!store.state.menuList) {
 			console.log('가져오기');
 			await defaultApi.request_menuList(params, sucFn);
